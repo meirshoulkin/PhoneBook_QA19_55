@@ -31,7 +31,12 @@ public class LoginTest extends TestBase{
   //      Assert.assertTrue(isElementPresent(By.xpath("//*[text()='Sign Out']")));
    }    @Test
     public void loginPositiveTestUser(){
-        User user = new User().withEmail("abc@def.com").withPassword("$Abcdef12345");
+        String email = "abc@def.com", password = "$Abcdef12345";
+        User user = new User()
+                .withEmail(email)
+                .withPassword(password)
+                ;
+        //User user = new User().withEmail("abc@def.com").withPassword("$Abcdef12345");
         // open login form
         app.getUser().openLoginRegistrationForm();
         // fill login form

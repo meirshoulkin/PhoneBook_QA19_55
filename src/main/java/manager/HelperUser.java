@@ -57,5 +57,11 @@ public class HelperUser extends HelperBase{
                 .until(ExpectedConditions.alertIsPresent());
         return alert.getText().contains("Wrong email or password format");
     }
+
+    public void login(User user){
+        openLoginRegistrationForm();
+        fillLoginRegistrationForm(user);
+        submitLogin();
+    }
 }
 
