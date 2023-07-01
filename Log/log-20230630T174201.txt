@@ -1,0 +1,14 @@
+17:42:04 INFO  tests.TestBase - Start test --->loginPositiveTestUser
+17:42:04 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //*[text()='Sign Out']
+17:42:14 INFO  manager.MyListener - Element with locator -->By.xpath: //*[text()='Sign Out']is found
+17:42:14 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //*[text()='LOGIN']
+17:42:14 INFO  manager.MyListener - Element with locator -->By.xpath: //*[text()='LOGIN']is found
+17:42:14 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //input[1]
+17:42:14 INFO  manager.MyListener - Element with locator -->By.xpath: //input[1]is found
+17:42:14 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //input[2]
+17:42:14 INFO  manager.MyListener - Element with locator -->By.xpath: //input[2]is found
+17:42:14 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //button[1]
+17:42:14 INFO  manager.MyListener - Element with locator -->By.xpath: //button[1]is found
+17:42:17 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //*[text()='Sign Out']
+17:42:17 INFO  manager.MyListener - Element with locator -->By.xpath: //*[text()='Sign Out']is found
+17:42:17 INFO  tests.TestBase - =================================

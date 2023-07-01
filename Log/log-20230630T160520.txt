@@ -1,0 +1,13 @@
+16:05:23 INFO  tests.TestBase - Start test --->loginPositiveTest
+16:05:23 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //*[text()='Sign Out']
+16:05:33 INFO  manager.MyListener - Element with locator -->By.xpath: //*[text()='Sign Out']is found
+16:05:33 INFO  manager.NgListener - loginPositiveTest
+16:05:33 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //*[text()='LOGIN']
+16:05:33 INFO  manager.MyListener - Element with locator -->By.xpath: //*[text()='LOGIN']is found
+16:05:34 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //input[1]
+16:05:34 INFO  manager.MyListener - Element with locator -->By.xpath: //input[1]is found
+16:05:34 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //input[2]
+16:05:34 INFO  manager.MyListener - Element with locator -->By.xpath: //input[2]is found
+16:05:34 INFO  manager.MyListener - Start searching element by locator -->By.xpath: //button[1]
+16:05:34 INFO  manager.MyListener - Element with locator -->By.xpath: //button[1]is found
+16:05:37 INFO  tests.TestBase - =================================
