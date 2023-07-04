@@ -38,6 +38,7 @@ public class HelperBase {
     }
 
     public void takeScreenShot(String link){
+
         File tmp = ((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
         File screenshot = new File(link);
 
@@ -48,4 +49,9 @@ public class HelperBase {
 //            throw new RuntimeException(e);
         }
     }
+
+    public String getText(By locator){
+        return wd.findElement(locator).getText();
+    }
+
 }

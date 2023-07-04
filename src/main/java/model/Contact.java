@@ -1,16 +1,16 @@
-package models;
+package model;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
 @Getter
+@Setter
 @Builder
 @ToString
 
-public class AddNumber {
+public class Contact {
 
     String name;
     String lastName;
@@ -18,6 +18,5 @@ public class AddNumber {
     String email;
     String address;
     String description;
-
 
 }

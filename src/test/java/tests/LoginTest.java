@@ -1,7 +1,7 @@
 package tests;
 
 import manager.NgListener;
-import models.User;
+import model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

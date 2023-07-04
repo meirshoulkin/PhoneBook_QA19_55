@@ -20,7 +20,7 @@ public class RegistrationTests extends TestBase{
 
     @Test
     public void registrationPositiveTest(){
-        //int i = (int)(System.currentTimeMillis()/1000)%3600;
+        int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "abc@def.com", password = "$Abcdef12345";
         // open login form
         app.getUser().openLoginRegistrationForm();
@@ -35,12 +35,12 @@ public class RegistrationTests extends TestBase{
     public void registrationNegativeTestWrongEmail(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "abc_" + i + "def.com", password = "$Abcdef12345";
+
         app.getUser().openLoginRegistrationForm();
         app.getUser().fillLoginRegistrationForm(email, password);
         app.getUser().submitRegistration();
         Assert.assertTrue(app.getUser().isErrorMessageFormat());
         Assert.assertTrue(app.getUser().isAlertPresent());
-
     }
 
     @AfterMethod

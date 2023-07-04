@@ -20,6 +20,7 @@ public class NgListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
         logger.info("Success test ---> " + result.getName());
+
     }
 
     @Override

@@ -14,22 +14,22 @@ public class ApplicationManager {
    // WebDriver wd;
     EventFiringWebDriver wd;
     HelperUser user;
-    HelperAddNumber addNumber;
+    HelperContact contact;
+ //   HelperAddNumber addNumber;
 
     public void init(){
       //  wd = new ChromeDriver();
         wd = new EventFiringWebDriver(new ChromeDriver());
         wd.register(new MyListener());
         wd.navigate().to("https://telranedu.web.app/home");
-
  //       wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         user = new HelperUser(wd);
-        addNumber = new HelperAddNumber(wd);
+        contact = new HelperContact(wd);
+ //       addNumber = new HelperAddNumber(wd);
     }
 
     public void tearDown() {
-
         wd.quit();
     }
 
@@ -37,7 +37,11 @@ public class ApplicationManager {
         return user;
     }
 
-    public HelperAddNumber getAddNumber() {
-        return addNumber;
+    public HelperContact getContact() {
+        return contact;
     }
+
+  //  public HelperAddNumber getAddNumber() {
+  //      return addNumber;
+  //  }
 }

@@ -25,7 +25,6 @@ Logger logger = LoggerFactory.getLogger(MyListener.class);
         super.afterFindBy(by, element, driver);
         logger.info("Element with locator -->" +by + "is found");
     }
-
     // src/test/sreenshots
 
     @Override

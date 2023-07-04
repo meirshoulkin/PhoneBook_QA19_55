@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 public class TestBase {
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
-
+//    WebDriver wd;
 
     public static ApplicationManager app = new ApplicationManager();
 
