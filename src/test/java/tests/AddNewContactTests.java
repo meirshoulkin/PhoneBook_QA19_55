@@ -3,12 +3,13 @@ package tests;
 import model.Contact;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AddNewContactTests extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition(){
         if(!app.getUser().isLogged()){
             app.getUser().openLoginRegistrationForm();
@@ -17,7 +18,7 @@ public class AddNewContactTests extends TestBase{
         }
     }
 
-    @Test(invocationCount = 5)
+    @Test(invocationCount = 5, groups = {"sanityGroup"})
     public void addNewContactPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         Contact contact = Contact.builder()
@@ -38,6 +39,10 @@ public class AddNewContactTests extends TestBase{
                         By.xpath("//div[@class='contact-item_card__2SOIM']" +
                                 "[last()]//h3")).equals(contact.getPhone())
         );
+    }
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+
     }
 
 }

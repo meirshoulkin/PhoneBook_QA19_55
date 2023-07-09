@@ -18,10 +18,10 @@ public class RegistrationTests extends TestBase{
         }
     }
 
-    @Test
+    @Test(groups = {"sanityGroup", "regressionGroup"})
     public void registrationPositiveTest(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
-        String email = "abc@def.com", password = "$Abcdef12345";
+        String email = "abc_" + i + "@def.com", password = "$Abcdef12345";
         // open login form
         app.getUser().openLoginRegistrationForm();
        // fill login form

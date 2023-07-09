@@ -3,6 +3,7 @@ package tests;
 import model.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -28,5 +29,8 @@ public class RemoveContactTests extends TestBase{
         app.getContact().removeAllContacts();
         Assert.assertTrue(app.getContact().isElementPresent(By.xpath("//div[@class='contact-item_card__2SOIM']")));
     }
+    @AfterMethod
+    public void tearDown() {
 
+    }
 }
