@@ -1,5 +1,7 @@
 package tests;
 
+import manager.ProviderData;
+import model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -11,7 +13,7 @@ public class RegistrationTests extends TestBase{
 
 //    WebDriver wd;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition(){
         if(app.getUser().isLogged()){
             app.getUser().logout();
@@ -31,6 +33,18 @@ public class RegistrationTests extends TestBase{
         // AsserAssert.assertTrue(wd.findElements(By.xpath("//a[@href='/add']")).size() > 0);
    }
 
+    @Test(dataProvider = "userModelListDTO", dataProviderClass = ProviderData.class)
+    public void registrationPositiveTestCSV(User user){
+        // open login form
+        app.getUser().openLoginRegistrationForm();
+        // fill login form
+        app.getUser().fillLoginRegistrationForm(user);
+        // click on Registration button
+        app.getUser().submitRegistration();
+        logger.info("Registration test starts witn data: " + user.getEmail() + " & " + user.getPassword());
+        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//*[text()='Sign Out']")));
+        // AsserAssert.assertTrue(wd.findElements(By.xpath("//a[@href='/add']")).size() > 0);
+    }
     @Test
     public void registrationNegativeTestWrongEmail(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
@@ -43,7 +57,7 @@ public class RegistrationTests extends TestBase{
         Assert.assertTrue(app.getUser().isAlertPresent());
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
 
     }
