@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 public class ProviderData {
 
     @DataProvider
@@ -16,12 +17,10 @@ public class ProviderData {
         String line = reader.readLine();
         while (line != null) {
             String[] split = line.split(",");
-            list.add(new Object[]{new User()
-                    .withEmail(split[2])
-                    .withPassword(split[3])
-            });
+            list.add(new Object[]{new User().withEmail(split[0]).withPassword(split[1])});
             line = reader.readLine();
         }
         return list.iterator();
     }
+
 }

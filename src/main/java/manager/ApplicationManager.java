@@ -18,41 +18,46 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 
     Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
-   // WebDriver wd;
+    // WebDriver wd;
     EventFiringWebDriver wd;
     HelperUser user;
     HelperContact contact;
- //   HelperAddNumber addNumber;
+    //   HelperAddNumber addNumber;
     String browser;
     Properties properties;
+
     public ApplicationManager(String browser) {
         properties = new Properties();
         this.browser = browser;
     }
 
     public void init() throws IOException {
-        properties.load(new FileReader(new File("src/test/resources/prod_config.properties")));
-      //  wd = new ChromeDriver();
-        if(browser.equals(BrowserType.CHROME)){
+        String target = System.getProperty("target", "preprod_config");
+       // properties.load(new FileReader(new File("src/test/resources/prod_config.properties")));
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
+        //  wd = new ChromeDriver();
+        if (browser.equals(BrowserType.CHROME)) {
             wd = new EventFiringWebDriver(new ChromeDriver());
             logger.info("Tests start on Chrome");
-        } else if(browser.equals(BrowserType.FIREFOX)){
+        } else if (browser.equals(BrowserType.FIREFOX)) {
             wd = new EventFiringWebDriver(new FirefoxDriver());
             logger.info("Tests start on FireFox");
         }
 //        wd = new EventFiringWebDriver(new ChromeDriver());
         wd.register(new MyListener());
-//        wd.navigate().to("https://telranedu.web.app/home");
+       // wd.navigate().to("https://telranedu.web.app/home");
         wd.navigate().to(properties.getProperty("web.baseURL"));
- //       wd.manage().window().maximize();
+        //       wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         user = new HelperUser(wd);
         contact = new HelperContact(wd);
- //       addNumber = new HelperAddNumber(wd);
+        //       addNumber = new HelperAddNumber(wd);
     }
+
     public void tearDown() {
         wd.quit();
     }
+
     public HelperUser getUser() {
         return user;
     }
@@ -60,7 +65,17 @@ public class ApplicationManager {
     public HelperContact getContact() {
         return contact;
     }
+
     //  public HelperAddNumber getAddNumber() {
-  //      return addNumber;
-  //  }
+    //      return addNumber;
+    //  }
+    public String getEmail() {
+        return properties.getProperty("web.email");
+    }
+    public String getPassword() {
+        return properties.getProperty("web.password");
+    }
+
+
 }
+

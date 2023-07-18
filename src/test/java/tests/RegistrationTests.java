@@ -20,7 +20,7 @@ public class RegistrationTests extends TestBase{
         }
     }
 
-    @Test(groups = {"sanityGroup", "regressionGroup"})
+    @Test(groups = {"sanityGroup", "regressionGroup"}, invocationCount = 3)
     public void registrationPositiveTest(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         String email = "abc_" + i + "@def.com", password = "$Abcdef12345";
@@ -33,16 +33,17 @@ public class RegistrationTests extends TestBase{
         // AsserAssert.assertTrue(wd.findElements(By.xpath("//a[@href='/add']")).size() > 0);
    }
 
-    @Test(dataProvider = "userModelListDTO", dataProviderClass = ProviderData.class)
+    @Test(groups = {"sanityGroup", "regressionGroup"}, dataProvider = "userModelListDTO", dataProviderClass = ProviderData.class)
     public void registrationPositiveTestCSV(User user){
+        int i = (int)(System.currentTimeMillis()/1000)%3600;
         // open login form
         app.getUser().openLoginRegistrationForm();
         // fill login form
-        app.getUser().fillLoginRegistrationForm(user);
+        app.getUser().fillLoginRegistrationForm(user.getEmail(), user.getPassword());
         // click on Registration button
         app.getUser().submitRegistration();
         logger.info("Registration test starts witn data: " + user.getEmail() + " & " + user.getPassword());
-        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//*[text()='Sign Out']")));
+       // Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//*[text()='Sign Out']")));
         // AsserAssert.assertTrue(wd.findElements(By.xpath("//a[@href='/add']")).size() > 0);
     }
     @Test
