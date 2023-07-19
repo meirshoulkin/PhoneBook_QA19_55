@@ -32,9 +32,9 @@ public class ApplicationManager {
     }
 
     public void init() throws IOException {
-        String target = System.getProperty("target", "preprod_config");
+        //String target = System.getProperty("target", "preprod_config");
        // properties.load(new FileReader(new File("src/test/resources/prod_config.properties")));
-        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
+       // properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
         //  wd = new ChromeDriver();
         if (browser.equals(BrowserType.CHROME)) {
             wd = new EventFiringWebDriver(new ChromeDriver());
@@ -45,30 +45,25 @@ public class ApplicationManager {
         }
 //        wd = new EventFiringWebDriver(new ChromeDriver());
         wd.register(new MyListener());
-       // wd.navigate().to("https://telranedu.web.app/home");
-        wd.navigate().to(properties.getProperty("web.baseURL"));
+        wd.navigate().to("https://telranedu.web.app/home");
+        //wd.navigate().to(properties.getProperty("web.baseURL"));
         //       wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         user = new HelperUser(wd);
         contact = new HelperContact(wd);
         //       addNumber = new HelperAddNumber(wd);
     }
-
     public void tearDown() {
         wd.quit();
     }
-
     public HelperUser getUser() {
         return user;
     }
-
     public HelperContact getContact() {
         return contact;
     }
-
     //  public HelperAddNumber getAddNumber() {
-    //      return addNumber;
-    //  }
+    //      return addNumber;//  }
     public String getEmail() {
         return properties.getProperty("web.email");
     }

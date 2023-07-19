@@ -29,8 +29,8 @@ public class RemoveContactTests extends TestBase{
         app.getContact().removeAllContacts();
         Assert.assertTrue(app.getContact().isElementPresent(By.xpath("//div[@class='contact-item_card__2SOIM']")));
     }
-    @AfterMethod
-    public void tearDown() {
-
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//
+//    }
 }

@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 public class AddNewContactTests extends TestBase{
 
     @BeforeMethod(alwaysRun = true)
@@ -40,9 +39,9 @@ public class AddNewContactTests extends TestBase{
                                 "[last()]//h3")).equals(contact.getPhone())
         );
     }
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
-
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void tearDown() {
+//
+//    }
 
 }
